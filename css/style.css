@@ -969,21 +969,21 @@ a:hover {
 }
 
 .role-description-card {
-    background-color: var(--text-light); /* Off-white background from your palette */
+    background-color: var(--text-light);
     padding: 40px;
-    margin: 30px auto 50px auto; /* Top, Right/Left auto, Bottom */
+    margin: 30px auto 50px auto;
     border-radius: 10px;
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
-    max-width: 800px; /* Limit width for better readability */
-    text-align: left; /* Align text within the card to left */
-    color: var(--text-dark); /* Dark grey text */
+    max-width: 800px;
+    text-align: left;
+    color: var(--text-dark);
 }
 
 .role-description-card h4 {
-    color: var(--primary-color); /* Muted slate blue heading */
+    color: var(--primary-color);
     font-size: 1.8em;
     margin-bottom: 20px;
-    text-align: center; /* Center the heading within the card */
+    text-align: center;
     position: relative;
     padding-bottom: 10px;
 }
@@ -996,7 +996,7 @@ a:hover {
     transform: translateX(-50%);
     width: 60px;
     height: 3px;
-    background-color: var(--accent-color); /* Muted gold/copper underline */
+    background-color: var(--accent-color);
     border-radius: 5px;
 }
 
@@ -1004,32 +1004,31 @@ a:hover {
     font-size: 1.1em;
     line-height: 1.7;
     margin-bottom: 15px;
-    color: var(--text-dark); /* Dark grey text */
+    color: var(--text-dark);
 }
 
 .role-description-card p:last-of-type {
-    margin-bottom: 0; /* Remove bottom margin for the last paragraph */
+    margin-bottom: 0;
 }
 
 .role-details {
     margin-top: 25px;
     padding-top: 20px;
-    border-top: 1px solid var(--border-color); /* Light grey-blue border */
+    border-top: 1px solid var(--border-color);
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Responsive grid for details */
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 15px;
 }
 
 .role-details p {
-    margin-bottom: 5px; /* Adjust margin for detail lines */
-    font-size: 1em; /* Slightly smaller font for details */
+    margin-bottom: 5px;
+    font-size: 1em;
 }
 
 .role-details strong {
-    color: var(--primary-color); /* Muted slate blue for strong text */
+    color: var(--primary-color);
 }
 
-/* Responsive adjustment for the role description card */
 @media (max-width: 768px) {
     .role-description-card {
         padding: 30px 20px;
@@ -1061,31 +1060,46 @@ a:hover {
     font-size: 2.5em;
 }
 
+.testimonials .container {
+    height: auto !important;
+    max-height: none !important;
+    overflow: visible !important;
+}
+
 .testimonial-slider-wrapper {
-    position: relative;
-    max-width: 800px;
-    margin: 0 auto 60px auto;
-    overflow: hidden;
-    padding-bottom: 40px;
+  position: relative;
+  overflow: hidden;
+  padding-bottom: 60px;
 }
 
 .testimonial-slider {
-    display: flex;
-    transition: transform var(--transition-speed);
-    scroll-behavior: smooth;
-    will-change: transform;
+  display: flex;
+  transition: transform 0.5s ease;
+  will-change: transform;
+}
+
+#testimonial-slider-container {
+  display: flex;
+  flex-wrap: nowrap;
+  width: 100%;
 }
 
 .testimonial-item {
-    min-width: 100%;
-    flex: 0 0 auto;
-    background-color: var(--text-light);
-    color: var(--text-dark);
-    padding: 40px;
-    border-radius: 10px;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
-    text-align: center;
-    box-sizing: border-box;
+  flex: 0 0 100%;
+  box-sizing: border-box;
+  padding: 1rem;
+  white-space: normal;
+  word-wrap: break-word;
+  background-color: var(--text-light);
+  border: 2px solid var(--accent-color);
+  border-radius: 10px;
+  padding: 30px 20px;
+  margin: 0 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .testimonial-item blockquote {
@@ -1094,13 +1108,26 @@ a:hover {
     margin-bottom: 20px;
     font-style: italic;
     color: var(--text-dark);
+    flex-grow: 1;
+    height: auto;
+    overflow: visible !important;
+    white-space: normal !important;
+    word-wrap: break-word !important;
+    word-break: break-word !important;
+    text-align: center;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .testimonial-item cite {
     display: block;
     font-size: 1.1em;
-    font-weight: 600;
+    font-weight: bold;
     color: var(--primary-color);
+    margin-top: auto !important;
+    white-space: normal;
+    word-wrap: break-word;
+    word-break: break-word;
 }
 
 .loading-message {
@@ -1322,8 +1349,8 @@ a:hover {
         width: 60%;
         left: 20%;
     }
-
-    /* === MOBILE SUBMENU FIX === */
+    
+/* MOBILE NAVIGATION */
     .nav-menu .submenu {
         position: static; 
         background-color: #546E7A; 
