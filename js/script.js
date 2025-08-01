@@ -185,12 +185,6 @@ function updateSlider() {
   sliderPrevButton.disabled = currentSlide === 0;
   sliderNextButton.disabled = currentSlide >= items.length - 1;
 
-  let maxHeight = 0;
-  items.forEach(item => {
-    item.style.height = 'auto';
-    maxHeight = Math.max(maxHeight, item.offsetHeight);
-  });
-  items.forEach(item => item.style.height = `${maxHeight}px`);
 }
 
 sliderPrevButton?.addEventListener('click', () => {
