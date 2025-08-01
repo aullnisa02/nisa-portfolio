@@ -296,3 +296,63 @@ if (testimonialForm && testimonialMessage) {
         });
     }
 });
+
+let slideIndex = [];
+document.querySelectorAll('.project-slideshow').forEach(() => {
+    slideIndex.push(1);
+});
+
+const slideshows = document.querySelectorAll('.project-slideshow');
+slideshows.forEach((slideshow, index) => {
+    showSlides(1, index);
+});
+
+window.plusSlides = function(n, no) {
+  showSlides(slideIndex[no] += n, no);
+}
+
+function showSlides(n, no) {
+  let i;
+  let x = document.querySelectorAll(".project-detail-item .slideshow-container");
+  if (x.length === 0) return;
+  
+  let slides = x[no].querySelectorAll(".mySlides");
+
+  if (n > slides.length) {slideIndex[no] = 1}
+  if (n < 1) {slideIndex[no] = slides.length}
+  
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";
+  }
+  slides[slideIndex[no]-1].style.display = "block";
+}
+
+const lightboxModal = document.getElementById('lightboxModal');
+const lightboxImage = document.querySelector('.lightbox-image');
+const lightboxCaption = document.querySelector('.lightbox-caption');
+const lightboxClose = document.querySelector('.lightbox-close');
+
+window.openLightbox = function(imgElement) {
+    if (!lightboxModal) return;
+    lightboxModal.style.display = 'flex';
+    lightboxImage.src = imgElement.src;
+    lightboxCaption.textContent = imgElement.alt;
+}
+
+document.querySelectorAll('.project-slideshow img').forEach(img => {
+    img.addEventListener('click', function() {
+        openLightbox(this);
+    });
+});
+
+lightboxClose?.addEventListener('click', function() {
+    if (lightboxModal) {
+        lightboxModal.style.display = 'none';
+    }
+});
+
+lightboxModal?.addEventListener('click', function(e) {
+    if (e.target === lightboxModal) {
+        lightboxModal.style.display = 'none';
+    }
+});
