@@ -350,3 +350,23 @@ lightboxModal?.addEventListener('click', function(e) {
         lightboxModal.style.display = 'none';
     }
 });
+
+// slide dummy project
+let dummySlideIndex = 1;
+showDummySlides(dummySlideIndex);
+
+function plusDummySlides(n) {
+    showDummySlides(dummySlideIndex += n);
+}
+
+function showDummySlides(n) {
+    let i;
+    let slides = document.getElementsByClassName("mySlides");
+    if (slides.length === 0) return;
+    if (n > slides.length) {dummySlideIndex = 1}
+    if (n < 1) {dummySlideIndex = slides.length}
+    for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+    }
+    slides[dummySlideIndex-1].style.display = "block";
+}
